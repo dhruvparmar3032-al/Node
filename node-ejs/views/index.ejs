@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-gray-300">
+    <section>
+        <!-- Task form  -->
+         <h1 class="text-center text-3xl font-semibold mt-5 ">Task files Generator</h1>
+<br>
+         <div class="flex items-center justify-center ">
+            <form action="/create" method="post">
+                <input type="text" class="border-2 border-gray-400 rounded-xl block px-4 py-2 mb-2" placeholder="Title" name="title">
+                <input type="text" class="border-2 border-gray-400 rounded-xl block px-4 py-2  mb-2" placeholder="Details" name="details">
+                <button type="submit" class="bg-blue-500 active:scale-95 hover:scale-105 transition duration-300 ease-in-out text-white px-4 py-2 w-full text-center rounded">Add Task</button>
+            </form>
+         </div>
+         <!-- tasks -->
+
+         <div class="flex flex-wrap gap-4 p-10 mt-10">
+
+            <% data.forEach((val)=>{ %>
+            <div class="bg-black text-white p-2 w-1/4 rounded-xl 
+            h-32 flex flex-col justify-between">
+                <h1 class=  "text-4xl text-center font-semibold"><%= val %></h1>
+                <div class="flex justify-between">  
+                    <a class="text-blue-400 active:text-red-400" href="/open/<%= val %>">Open </a>
+                    <a class="text-green-400 active:text-red-400" href="/edit/<%= val %>">Edit File</a>
+                </div>
+            </div>
+
+            <% }) %>
+
+            
+         </div>
+    </section>
+    
+
+</body>
+</html>
